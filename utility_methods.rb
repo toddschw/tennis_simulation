@@ -22,13 +22,32 @@ def show_by_age
   end
 end
 
-#illustrates #sort_by also 
+#illustrates #sort_by also
 def show_by_current_round
   players_by_round = @us_open.sort_by do |player|
       Player::ROUND_POINTS[player.round]
   end
 
   players_by_round.each do |player|
-    puts "#{player.name} current (or finished) round is #{player.round}"
+    puts "#{player.name}'s current (or finished) round is #{player.round}."
   end
+end
+
+#illustrates #min method
+def show_top_player
+  puts "The top ranked player in the tournament is #{@us_open.min.name}."
+end
+
+
+#illustrates #max method
+def show_lowest_player
+  puts "The lowest ranked player in the Top 10 is #{@us_open.max.name}."
+end
+
+def all_still_in?
+  status_of_top_10 = @us_open.all? do |player|
+    Player::ROUND_POINTS[player.round] >= 6
+  end
+
+  puts "#{status_of_top_10 ? 'All' : 'Not all'} Top 10 seeds are still in."
 end
