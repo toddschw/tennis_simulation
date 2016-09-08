@@ -21,3 +21,14 @@ def show_by_age
       puts "#{player.name} is #{player.age} years old."
   end
 end
+
+#illustrates #sort_by also 
+def show_by_current_round
+  players_by_round = @us_open.sort_by do |player|
+      Player::ROUND_POINTS[player.round]
+  end
+
+  players_by_round.each do |player|
+    puts "#{player.name} current (or finished) round is #{player.round}"
+  end
+end

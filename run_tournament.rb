@@ -3,5 +3,6 @@ require_relative('utility_methods')
 
 introduce_players; puts;
 show_world_rankings; puts;
-show_by_age; puts; 
+show_by_age; puts;
+show_by_current_round; puts; 
 
