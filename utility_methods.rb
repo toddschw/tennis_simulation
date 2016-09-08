@@ -44,6 +44,7 @@ def show_lowest_player
   puts "The lowest ranked player in the Top 10 is #{@us_open.max.name}."
 end
 
+#illustrates #all? method
 def all_still_in?
   status_of_top_10 = @us_open.all? do |player|
     Player::ROUND_POINTS[player.round] >= 6
@@ -51,3 +52,9 @@ def all_still_in?
 
   puts "#{status_of_top_10 ? 'All' : 'Not all'} Top 10 seeds are still in."
 end
+
+def any_from_US?
+  from_us = @us_open.any? { |player| player.country == "US" }
+  puts "#{from_us ? 'At least 1' : 'None'} of the Top 10 are from the United States."
+end
+
