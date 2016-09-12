@@ -112,20 +112,49 @@ def show_6_to_10
 end
 
 #drop_while
-def show_players_2_10
-  not_number_1 = @us_open.sort.drop_while { |player| player.seed < 2}
-  not_number_1.each { |player| puts "#{player.name} - #{player.seed}"}
+def show_players_7_10
+  not_number_1 = @us_open.sort.drop_while { |player| player.seed < 7}
+  not_number_1.each { |player| puts "Players Seeded 7-10"; puts "#{player.name} - #{player.seed}"}
 end
 
 #each_cons
 def just_for_fun
-  @us_open.each_cons(3) do |two_players|
+  @us_open.each_cons(3) do |three_players|
     output_line = ""
-    two_players.each do |p|
+    three_players.each do |p|
       output_line = output_line + p.name + ", "
     end
-    print output_line[0..-3]; puts;
+    print output_line[0..-3]
+    print ": #{three_players[0].name} leaves"
+    puts;
   end
+end
+
+#shows #each_slice
+def sample_matchups
+  puts 'This shows some sample matchups'
+  @us_open.each_slice(2) do |match_up|
+    puts "#{match_up[0].name} vs #{match_up[1].name}"
+  end
+end
+
+#shows #each_with_index
+def show_players
+  puts "Top 10 Players"
+  @us_open.sort.each_with_index do |player, index|
+    puts "#{index + 1} - #{player.name}"
+  end
+end
+
+#shows #each_with_object
+def get_ready_for_wimbledon
+  wimbledon = Tournament.new("Wimbledon",[])
+  @us_open.each_with_object(wimbledon) do |player, obj|
+    wimbledon.players << player
+  end
+
+  puts "#{wimbledon.name} is played in England."
+  puts "#{wimbledon.first.name} might play Roger Federer"
 end
 
 

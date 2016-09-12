@@ -13,7 +13,7 @@ require_relative('player')
 @cilic = Player.new("Marin Cilic", 7, 9,  "Croatia", 27, :RND3)
 @thiem = Player.new("Dominic Thiem", 8, 10, "Austria", 23, :RND4)
 
-@tsonga = Player.new("Jo-Wilfriend Tsonga", 9, 11, "France", 31, :QF)
+@tsonga = Player.new("Jo-Wilfried Tsonga", 9, 11, "France", 31, :QF)
 @monfils = Player.new("Gael Monfils", 10, 12, "France", 30, :SF )
 
 @us_open = Tournament.new("US Open", [@djokovic, @murray, @wawrinka, @nadal, @raonic, @nishikori, @cilic, @thiem, @tsonga, @monfils ])

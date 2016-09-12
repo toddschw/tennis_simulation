@@ -13,6 +13,9 @@ show_map; puts;
 top_10_seed_rank; puts;
 find_surprise_upset; puts;
 show_6_to_10; puts;
-show_players_2_10; puts;
-just_for_fun; puts; 
+show_players_7_10; puts;
+just_for_fun; puts;
+sample_matchups; puts;
+show_players; puts;
+get_ready_for_wimbledon; puts;
 
