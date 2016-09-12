@@ -1,10 +1,10 @@
 require_relative('tournament')
 require_relative('player')
 
-@djokovic = Player.new("Novak Djokovic", 1, 1,  "Serbia", 29, :SF)
+@djokovic = Player.new("Novak Djokovic", 1, 1,  "Serbia", 29, :F)
 @murray = Player.new("Andy Murray", 2, 2, "Great Britain", 29, :QF)
 
-@wawrinka = Player.new("Stanley Wawrinka", 3, 3, "Switzerland", 31, :SF)
+@wawrinka = Player.new("Stanley Wawrinka", 3, 3, "Switzerland", 31, :C)
 @nadal = Player.new("Rafael Nadal", 4, 5, "Spain", 30, :RND4)
 
 @raonic = Player.new("Milos Raonic", 5, 6, "Canada", 25, :RND2 )
