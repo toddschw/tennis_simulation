@@ -94,7 +94,7 @@ def top_10_seed_rank
   puts "The number of players whose seed and ATP rank is the same is #{seed_same_as_rank}."
 end
 
-# show #detect (AKA #find)
+# show #detect (#find)
 def find_surprise_upset
   upset_player = @us_open.find do |player|
     player.seed >= 3 && Player::ROUND_POINTS[player.round] <= 3
@@ -130,7 +130,7 @@ def just_for_fun
   end
 end
 
-#shows #each_slice
+#each_slice
 def sample_matchups
   puts 'This shows some sample matchups'
   @us_open.each_slice(2) do |match_up|
@@ -138,7 +138,7 @@ def sample_matchups
   end
 end
 
-#shows #each_with_index
+#each_with_index
 def show_players
   puts "Top 10 Players"
   @us_open.sort.each_with_index do |player, index|
@@ -146,7 +146,7 @@ def show_players
   end
 end
 
-#shows #each_with_object
+#each_with_object
 def get_ready_for_wimbledon
   wimbledon = Tournament.new("Wimbledon",[])
   @us_open.each_with_object(wimbledon) do |player, obj|
@@ -156,6 +156,52 @@ def get_ready_for_wimbledon
   puts "#{wimbledon.name} is played in England."
   puts "#{wimbledon.first.name} might play Roger Federer"
 end
+
+#select (#find_all)
+def show_from_france
+  french_players = @us_open.select do |player|
+    player.country == "France"
+  end
+
+  puts "French players are:"
+  french_players.each do |french_player|
+    puts french_player.name
+  end
+end
+
+#find_index
+def show_a_player_whose_seed_not_equal_rank
+  index = @us_open.find_index do |player|
+    player.atp_rank != player.seed
+  end
+
+  puts "#{@us_open.players[index+1].name} is the top most player whose seed does not match his rank."
+end
+
+#flat_map
+def show_flat_map
+  players_map = @us_open.flat_map do |player|
+    [player.name, player.seed]
+  end
+
+  p players_map
+end
+
+#group_by
+def show_mismatches
+  dif_hash = @us_open.group_by do |player|
+    (player.seed - player.atp_rank).abs
+  end
+
+  dif_hash.each do |k,v|
+    puts "Players whose seed is higher than rank by #{k} are:"
+    v.each do |p|
+      puts p.name
+    end
+    puts
+  end
+end
+
 
 
 

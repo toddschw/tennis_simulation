@@ -18,4 +18,7 @@ just_for_fun; puts;
 sample_matchups; puts;
 show_players; puts;
 get_ready_for_wimbledon; puts;
-
+show_from_france; puts
+show_a_player_whose_seed_not_equal_rank; puts;
+show_flat_map; puts;
+show_mismatches; puts; 
